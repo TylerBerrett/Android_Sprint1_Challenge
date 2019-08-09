@@ -1,3 +1,5 @@
 package com.example.sprintchallenge.model
 
-class movieListItem (var value: String, var isChecked: Boolean, var location: Int)
+import java.io.Serializable
+
+class movieListItem: Serializable (var value: String, var isChecked: Boolean, var location: Int)
