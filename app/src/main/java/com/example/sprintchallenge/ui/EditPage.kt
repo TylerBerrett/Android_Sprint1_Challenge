@@ -1,6 +1,7 @@
 package com.example.sprintchallenge.ui
 
 import android.app.Application
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.sprintchallenge.R
@@ -17,11 +18,13 @@ class EditPage : AppCompatActivity() {
 
         val movieText = movie_text.text.toString()
         val seenMovie = switch_seen.isChecked
+        val movieLocation = ListOfMovies.movies.size
 
 
-        button_add.setOnClickListener {
-            ListOfMovies.addMovie(movieListItem(movieText, seenMovie, ListOfMovies.movies.size))
-
+        button_save.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            ListOfMovies.addMovie(movieListItem(movieText, seenMovie, movieLocation))
+            startActivity(intent)
         }
 
 
