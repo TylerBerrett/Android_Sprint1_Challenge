@@ -1,3 +1,3 @@
 package com.example.sprintchallenge.model
 
-class movieListItem (value: String, isChecked: Boolean, location: Int)
+class movieListItem (var value: String, var isChecked: Boolean, var location: Int)
