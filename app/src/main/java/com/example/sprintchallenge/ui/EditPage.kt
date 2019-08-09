@@ -25,5 +25,13 @@ class EditPage : AppCompatActivity() {
         }
 
 
+        var movieInfo = intent.getSerializableExtra(MainActivity.MAIN_KEY)
+        if (movieInfo != null){
+            var allMovieInfo = movieInfo as movieListItem
+            movie_text.setText(allMovieInfo.value)
+            if (allMovieInfo.isChecked){switch_seen.toggle()}
+        }
+
+
     }
 }
