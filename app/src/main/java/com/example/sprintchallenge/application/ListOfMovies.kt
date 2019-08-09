@@ -4,20 +4,10 @@ import android.app.Application
 import com.example.sprintchallenge.model.movieListItem
 
 class ListOfMovies: Application() {
+    var movies = ArrayList<movieListItem>()
 
-    companion object{
-        var movies = ArrayList<movieListItem>()
-
-        fun addMovie(movie: movieListItem) {
+    fun addMovie(movie: movieListItem) {
             movies.add(movie)
-        }
-
-
     }
-
-
-
-
-
 
 }

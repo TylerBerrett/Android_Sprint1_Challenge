@@ -16,6 +16,8 @@ class EditPage : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_page)
 
+        var listOfMovies = application as ListOfMovies
+
         val movieText = movie_text.text.toString()
         val seenMovie = switch_seen.isChecked
         val movieLocation = ListOfMovies.movies.size
