@@ -21,7 +21,6 @@ class EditPage : AppCompatActivity() {
         button_save.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             theListOfMovies.addMovie(movieListItem(movie_text.text.toString(), switch_seen.isChecked, theListOfMovies.movies.size))
-            println(theListOfMovies.movies)
             startActivity(intent)
         }
 
