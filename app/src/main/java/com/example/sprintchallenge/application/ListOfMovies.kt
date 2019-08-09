@@ -10,4 +10,8 @@ class ListOfMovies: Application() {
             movies.add(movie)
     }
 
+    fun deleteMovie(location: Int){
+        movies.removeAt(location)
+    }
+
 }

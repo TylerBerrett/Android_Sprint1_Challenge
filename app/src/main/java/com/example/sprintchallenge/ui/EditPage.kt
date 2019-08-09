@@ -12,16 +12,23 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class EditPage : AppCompatActivity() {
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_page)
 
         val theListOfMovies = application as ListOfMovies
 
+        val intent2 = Intent(this, MainActivity::class.java)
+
         button_save.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
             theListOfMovies.addMovie(movieListItem(movie_text.text.toString(), switch_seen.isChecked, theListOfMovies.movies.size))
-            startActivity(intent)
+            startActivity(intent2)
+        }
+
+        button_delete.setOnClickListener {
+            startActivity(intent2)
         }
 
 
@@ -34,4 +41,14 @@ class EditPage : AppCompatActivity() {
 
 
     }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        val intent = Intent(this, MainActivity::class.java)
+        val theListOfMovies = application as ListOfMovies
+        theListOfMovies.addMovie(movieListItem(movie_text.text.toString(), switch_seen.isChecked, theListOfMovies.movies.size))
+        startActivity(intent)
+    }
+
+
 }
