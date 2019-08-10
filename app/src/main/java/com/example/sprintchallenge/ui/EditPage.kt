@@ -18,15 +18,12 @@ class EditPage : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_page)
 
-        ///Adding application.
         // intent to MainActivity
-        val theListOfMovies = application as ListOfMovies
         val intent2 = Intent(this, MainActivity::class.java)
 
         ///on save adds EditText value and switch value and assigns a location for a movie list item
         button_save.setOnClickListener {
-            theListOfMovies.addMovie(movieListItem(movie_text.text.toString(), switch_seen.isChecked, theListOfMovies.movies.size))
-            startActivity(intent2)
+            addMovieToList()
         }
         /// Gos back to MainActivity movies delete themselves as soon as I edit them
         button_delete.setOnClickListener {
@@ -45,9 +42,16 @@ class EditPage : AppCompatActivity() {
     ///Same as save button but for the back press
     override fun onBackPressed() {
         super.onBackPressed()
+        addMovieToList()
+    }
+
+    ///Makes back button and save button save the list of the movie to the ListOfMovies Application
+    fun addMovieToList() {
         val intent = Intent(this, MainActivity::class.java)
         val theListOfMovies = application as ListOfMovies
-        theListOfMovies.addMovie(movieListItem(movie_text.text.toString(), switch_seen.isChecked, theListOfMovies.movies.size))
+        if (movie_text.text.toString() != ""){
+            theListOfMovies.addMovie(movieListItem(movie_text.text.toString(), switch_seen.isChecked, theListOfMovies.movies.size))
+        }
         startActivity(intent)
     }
 }
